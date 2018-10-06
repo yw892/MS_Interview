@@ -44,8 +44,8 @@ def all_combinations(input_num):
     dict_ = {1:[], 2:[['a'],['b'],['c']], 3:[['d'],['e'],['f']], 4:[['g'],['h'],['i']], 5:[['j'],['k'],['l']], 
          6:[['m'],['n'],['o']], 7:[['p'],['q'],['r'],['s']], 8:[['t'],['u'],['v']], 9:[['w'],['x'],['y'],['z']]}
     list_num = list(map(int, str(input_num)))
-    return reduce(lambda exist,i: dict_[list_num[i]] if isinstance(exist, int) 
-       else [x+y for x in exist for y in dict_[list_num[i]]], [0] + list(range(len(list_num))))
+    return list(map(lambda x:''.join(x), reduce(lambda exist,i: dict_[list_num[i]] if isinstance(exist, int) 
+       else [x+y for x in exist for y in dict_[list_num[i]]], [0] + list(range(len(list_num))))))
 
 res = all_combinations(34567)
 print(len(res))
