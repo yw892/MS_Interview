@@ -1,29 +1,3 @@
-def next_number(num):
-    """
-    The function is to find the minimum number which is larger than given number
-    :param num: integer
-    :return: integer, if num is already the maximum number, return None
-    """
-    num_list = list(map(int, str(num)))
-    pos = len(num_list) - 2
-    while pos >= 0:
-        if num_list[pos] < num_list[pos+1]:
-            break
-        pos -= 1
-    if pos < 0:
-        print('No next number, maximum number already')
-        return
-    else:
-        path = num_list[pos+1:]
-        replace_pos = 0
-        for i in range(1, len(path)):
-            if path[i] > num_list[pos] and path[i] < path[replace_pos]:
-                replace_pos = i
-        path[replace_pos], num_list[pos] = num_list[pos], path[replace_pos]
-        return int(''.join(list(map(lambda x:str(x), num_list[:pos+1] + path[::-1]))))
-
-print(next_number(987136542))
-
 from functools import reduce
 def num_combinations(num_input):
     """
