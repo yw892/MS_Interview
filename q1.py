@@ -14,7 +14,6 @@ def binary_search_next_larger_pos(arr, val, low, high):
         return -1
     while low <= high:
         mid = int((low + high) / 2)
-        print(mid)
         if arr[mid] < val:
             high = mid - 1
         elif arr[mid] > val:
@@ -42,10 +41,7 @@ def next_number(num):
         return
     else:
         path = num_list[pos+1:]
-        print(path)
         replace_pos = binary_search_next_larger_pos(path, num_list[pos], 0, len(path))
-        print(replace_pos)
-        print(num_list[pos], path[replace_pos])
         path[replace_pos], num_list[pos] = num_list[pos], path[replace_pos]
         return int(''.join(list(map(lambda x:str(x), num_list[:pos+1] + path[::-1]))))
 
